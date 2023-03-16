@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let HCN = function(cd,cr){
+            this.cd = cd;
+            this.cr = cr;
+            this.dientich = function(){
+                this.dt = cd * cr ;
+                return this.dt ;
+            }
+            this.chuvi = function(){
+                this.cv = ( cd + cr )*2;
+                return this.cv; 
+            }
+        }
+        let hinhchunhat = new HCN(2,4);
+        
+        document.write('Chieu dai la ' + hinhchunhat.cd + '<br>Chieu rong la ' + hinhchunhat.cr + '<br>Dien Tich la ' + hinhchunhat.dientich() + '<br>Chu vi la ' + hinhchunhat.chuvi());
+        console.log(hinhchunhat)
+    </script>
+</body>
+</html>
