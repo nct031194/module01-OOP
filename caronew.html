@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CARO SIMPLE</h1>
+    <p id="caro"></p><br>
+    <button type="button" onclick="ChangeValue()">Change Value</button>
+    <script>
+        let result = document.getElementById('caro')
+        let caro = []
+        let data =''
+        let check = 1;
+        for (i=0; i < 5 ; i++) {
+            caro[i] = new Array('(.)','(.)','(.)','(.)','(.)')
+        }
+        data=caromap()
+        result.innerHTML= data
+        function ChangeValue(){
+            let X = +prompt('Nhap vao gia tri X') ;
+            let Y = +prompt('Nhap vao gia tri y') ;
+            if (check % 2 === 0){
+            caro[X][Y]= "0";
+            data = caromap();
+            check++;
+        }
+            else {
+            caro[X][Y]= "X";
+            data = caromap();
+            check++;
+            }
+        result.innerHTML= data
+        for(a=0 ; a<5;a++){
+                for (b=0 ; b<5;b++){
+                    if (caro[a][b] == "X" && caro[a+1][b] == "X" && caro[a+2][b] == "X" || caro[a][b] == "X" && caro[a+1][b+1] == "X" && caro[a+2][b+2] == "X" || caro[a][b] == "X" && caro[a][b+1] == "X" && caro[a][b+2] == "X"){
+                        alert('X thang')
+                        data = caromap()
+                    }
+                    if (caro[a][b] == "0" && caro[a+1][b] == "0" && caro[a+2][b] == "0" || caro[a][b] == "0" && caro[a+1][b+1] == "0" && caro[a+2][b+2] == "0" || caro[a][b] == "0" && caro[a][b+1] == "0" && caro[a][b+2] == "0"){
+                        alert(' 0 thang')
+                        data = caromap()
+                    }
+                }
+            }
+        }
+
+        function caromap(){
+            data = ""
+            for ( i=0 ; i<5;i++){
+                data += '<br>';
+                for ( j =0 ; j<5;j++){
+                    data += caro[i][j] + '&nbsp;&nbsp;'
+                }
+            }
+            return data
+        }
+
+
+    </script>
+</body>
+</html>
