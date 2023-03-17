@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Nhập vào từ tiếng Anh cần dịch:</h3>
+    <input type="text" name="inputtxt"  id="word" value="Text" ><button type="button" onclick="showMessage()">Dịch</button><br><br>
+    <!-- <button type="button" onclick="getEng()">Thêm từ</button> -->
+    <p id="result"></p>
+
+    <script>
+            let ketqua = document.getElementById('result')
+            // let engCheck = ''
+            // let engNew = ''
+            let eng = ['study' , 'car' , 'silver']
+            let vn = ['hoc' , 'xe oto' , 'bac'];
+            function showMessage(){
+            let enginput = document.getElementById('word').value
+            for (i=0 ; i < eng.length ; i++){
+                if (eng[i] == enginput){
+                    ketqua.innerHTML = vn[i];
+                }
+            }
+        }
+        // function getEng(){
+        //     enginput = document.getElementById('word').value
+        //     engCheck = enginput.split('')
+        //     for(i=0;i<engCheck.length;i++){
+        //     if (/[A-Z]/.test(engCheck[i]) == true){
+        //         engCheck[i] = engCheck[i].toLowerCase('');
+        //         }
+        //     }
+        //     engNew = engCheck.join('');
+        //     eng.length = 1
+        //     for(i=1;i<eng.length;i++){
+        //     if (eng[i] == engNew){
+        //         engNew = eng[i]
+        //         ketqua.innerHTML = 'Từ này đã nằm trong từ điển'
+        //         }
+        //     else {
+        //         eng.push(engNew);
+        //         let vninput = prompt('Nhập vào bản dịch cho từ này')
+        //         vn.push(vninput);
+        //         ketqua.innerHTML = 'Bạn đã thêm từ ' + engNew + ' vào từ điển thành công !';
+        //     }
+        //     }
+        // }
+        
+    </script>
+</body>
+</html>
