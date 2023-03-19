@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let temperature = function (C){
+        this.C = C;
+        this.F = getFfromC;
+        this.K = getKfromC;
+    }
+    function getFfromC(){
+        return (this.C * 1.8) + 32
+    }
+    function getKfromC(){
+        return this.C + 273.15;
+    }
+    let temp = new temperature(25)
+    document.write('độ C = ' + temp.C + '<br> Độ F = ' + temp.F() + '<br> Độ Kevin = ' + temp.K() )
+    </script>
+</body>
+</html>
