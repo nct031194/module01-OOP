@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mobile = function (brand){
+            this.brand = brand;
+            this.battery = 100;
+            this.inbox = new Array() ;
+            this.sent = new Array();
+            this.power = true;
+            this.send = sendMessage;
+            this.charge = Charge;
+            this.checkinbox = checkInbox; 
+            this.checksent= checkSent;
+        }
+        
+        function checkInbox(){
+                if (this.battery > 0 && this.power === true){
+                    return this.inbox;
+                }
+                else {
+                    return 'Het PIN';
+                }
+            };
+
+        function checkSent(){
+                if (this.battery > 0 && this.power === true){
+                    return this.sent
+                }
+                else {
+                    return 'Het PIN'
+                }
+            }
+    
+        function sendMessage(receiver){
+            if(this.battery > 0 && this.power === true){
+                let message = prompt('Nội dung tin nhắn :');
+                this.sent.push(message);
+                receiver.inbox.push(message);
+                this.battery = this.battery - 1;
+                
+                Checkpower(this);
+                return alert('Bạn đã gửi tin thành công đến ' + receiver.brand);
+            }
+            else {
+                return alert('Het pin');
+            }
+            }
+           
+        function Charge(a){
+                while(a.battery <= 99){
+                        document.writeln(a.brand + ' đang sạc ' + a.battery + '  <img width="100" height="30" src="https://i.postimg.cc/c4GGMLCM/f446b1eacc9ff9a6c90c9ac29e60877c.gif" />  ');
+                        a.battery++; 
+                        Checkpower(a);
+                }
+            //     if (a.battery === 100){
+            //         document.writeln(a.brand + ' đã sạc đầy <img width="100" height="30" src="https://i.postimg.cc/gcxNcCVC/Full-Battery-Mobile-Transparent-PNG.png" />  ' )
+            // }
+            return document.write( a.brand + ' đã sạc đầy <img width="100" height="30" src="https://i.postimg.cc/gcxNcCVC/Full-Battery-Mobile-Transparent-PNG.png" />  ' )
+        }
+
+        function Checkpower(b){
+            if (b.battery === 0){
+                b.power = false;
+            }
+            else {
+                b.power = true
+            }
+        }
+
+        let nokia = new mobile('Nokia');
+        let iphone = new mobile('Iphone');
+
+
+
+        
+
+//         let a = 0
+//         setInterval(function() {
+//   // Khối mã được chạy sau 3 giây
+
+//   console.log(a++);
+// }, 3000);
+
+    </script>
+</body>
+</html>
